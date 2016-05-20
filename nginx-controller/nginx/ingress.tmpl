@@ -7,6 +7,7 @@ upstream {{$upstream.Name}} {
 {{range $server := .Servers}}
 server {
 	listen 80;
+	client_max_body_size 2000M;
 	{{if $server.SSL}}
 	listen 443 ssl;
 	ssl_certificate {{$server.SSLCertificate}};
